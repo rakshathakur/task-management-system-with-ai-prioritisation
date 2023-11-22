@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Add Task - Your Task Manager</title>
+</head>
+<body>
+    <div class="container">
+        <div id="addTask" class="page">
+            <h2>Add Task</h2>
+            <form id="addTaskForm">
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" name="taskName" required>
+                
+                <label for="taskDeadline">Task Deadline:</label>
+                <input type="datetime-local" id="taskDeadline" name="taskDeadline" required>
+
+                <button type="submit" class="buttontask">Save Task</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("addTaskForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get task name and deadline from the form
+            var taskName = document.getElementById("taskName").value;
+            var taskDeadline = document.getElementById("taskDeadline").value;
+
+            // Perform logic to save the task to your task list (you may use localStorage, backend API, etc.)
+            // For simplicity, let's alert the task details
+            alert("Task Name: " + taskName + "\nTask Deadline: " + taskDeadline);
+
+            // Redirect back to the home page after saving the task
+            window.location.href = "home.html";
+        });
+    </script>
+</body>
+</html>

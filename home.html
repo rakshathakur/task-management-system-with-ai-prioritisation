@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Task Manager</title>
+</head>
+<body>
+    <div class="container">
+        <div id="home" class="page">
+            <h2>Daily Routine</h2>
+            <p id="currentDate"></p>
+
+            <div id="taskList">
+                <!-- Tasks without localStorage -->
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox0">
+                    <span class="task-name">Wake up</span>
+                    <span class="task-time">6:30 AM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox1">
+                    <span class="task-name">Exercise for 1 hour</span>
+                    <span class="task-time">7:00 AM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox2">
+                    <span class="task-name">Take bath</span>
+                    <span class="task-time">8:30 AM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox3">
+                    <span class="task-name">Have breakfast</span>
+                    <span class="task-time">9:00 AM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox4">
+                    <span class="task-name">Take lunch</span>
+                    <span class="task-time">1:30 PM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox5">
+                    <span class="task-name">Evening snacks</span>
+                    <span class="task-time">5:30 PM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox6">
+                    <span class="task-name">Go for a walk</span>
+                    <span class="task-time">6:30 PM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox7">
+                    <span class="task-name">Have dinner</span>
+                    <span class="task-time">8:30 PM</span>
+                </div>
+
+                <div class="task">
+                    <input type="checkbox" id="taskCheckbox8">
+                    <span class="task-name">Sleep</span>
+                    <span class="task-time">12:00 AM</span>
+                </div>
+
+                <!-- Add Task button -->
+                <button onclick="window.location.href='addtask.html'">Add Task</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Display the current date
+        document.getElementById("currentDate").innerText = new Date().toLocaleDateString();
+
+        // Function to show congratulations dialog
+        function congratulateUser(taskName) {
+            alert(`Congratulations! You have successfully completed the task: ${taskName}`);
+        }
+
+        // Attach event listener to checkboxes
+        document.querySelectorAll('[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    congratulateUser(this.parentElement.querySelector('.task-name').innerText);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
